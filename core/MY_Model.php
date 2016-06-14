@@ -306,6 +306,11 @@ class MY_Model extends CI_Model
         {
             $data = json_decode(json_encode($data), FALSE);
         }
+        elseif($this->return_as == 'array')
+        {
+            $data = json_decode(json_encode($data), TRUE);
+        }
+
         if(isset($this->_select))
         {
             $this->_select = '*';
