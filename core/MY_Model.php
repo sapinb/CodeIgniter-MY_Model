@@ -1259,7 +1259,12 @@ class MY_Model extends CI_Model
 
 
                 }
-                $sub_results = $subs;
+                                
+                if(isset($pivot_table)) {
+                    $sub_results = array_map(function($i) { return array_values($i); }, $subs);
+                } else {
+                    $sub_results = $subs;
+                }
 
                 foreach($local_key_values as $key => $value)
                 {
